@@ -25,7 +25,14 @@ const sendOTP = async (req, res) => {
     from: process.env.EMAIL_USER,
     to: email,
     subject: "Verify your Account to Reset Password",
-    text: `Your OTP to verify your account is: ${otp}`,
+    // text: `Your OTP to verify your account is: ${otp}`,
+    html: `
+      <div style="font-family: sans-serif; font-size: 16px;">
+        <p><strong>Your OTP to verify your account is:</strong></p>
+        <h2>${otp}</h2>
+      </div>
+    `
+};
   };
 
   try {
