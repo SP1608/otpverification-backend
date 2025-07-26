@@ -7,7 +7,14 @@ const { sendOTP } = require("./send-otp");
 const { verifyOTP } = require("./verify-otp"); //  Import verifyOTP handler
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: "*", // OR better: use Framer preview domain
+    methods: ["POST", "GET"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
